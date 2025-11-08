@@ -8,9 +8,11 @@ import {
 import { protectRoute } from "../middleware/auth.middleware.js";
 import { acrjetProtection } from "../middleware/arcjet.middleware.js";
 
+
 const router = express.Router();
 
 router.use(acrjetProtection);
+
 
 router.post("/signup", signup);
 router.post("/login", login);
