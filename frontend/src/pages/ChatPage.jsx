@@ -1,4 +1,3 @@
-import React from 'react'
 import { useAuthStore } from '../store/useAuthStore'
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { useChatStore } from '../store/useChatStore';
@@ -32,9 +31,9 @@ function ChatPage() {
 
           </div>
         </div>
-     </BorderAnimatedContainer>
+      </BorderAnimatedContainer>
     </div>
-  )
+  );
 }
 
-export default ChatPage 
+export default ChatPage;
