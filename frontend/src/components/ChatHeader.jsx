@@ -5,6 +5,8 @@ import { useAuthStore } from "../store/useAuthStore";
 
 function ChatHeader() {
   const { selectedUser, setSelectedUser } = useChatStore();
+  const { onlineUsers } = useAuthStore();
+  const isOnline = onlineUsers.includes(selectedUser._id);
 
     useEffect(() => {
       const handleEscKey = (event) => {
@@ -23,7 +25,7 @@ function ChatHeader() {
    border-slate-700/50 max-h-[84px] px-6 flex-1"
     >
       <div className="flex items-center space-x-3">
-        <div className="avatar online">
+        <div className={`avatar ${isOnline ? "online" : "offline"}`}>
           <div className="w-12 rounded-full">
             <img
               src={selectedUser.profilePic || "/avatar.png"}
@@ -37,7 +39,7 @@ function ChatHeader() {
             {selectedUser.fullName}
           </h3>
           <p className="text-slate-400 text-sm">
-            Online
+            {isOnline ? "Online" : "Offline"}
           </p>
         </div>
       </div>
